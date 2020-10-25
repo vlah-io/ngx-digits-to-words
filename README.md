@@ -1,27 +1,51 @@
-# NgxDigitsToWords
+@vlah.io/ngx-digits-to-words
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+Digits to words helper library.
 
-## Development server
+### Usage (code example)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```
+    <div vlahioDigitsToWordsRO [digits]="digits"></div>
+    <div vlahioDigitsToWordsRO [digits]="digits" [currency]="'USD'"></div>
+    <div vlahioDigitsToWordsRO [digits]="digits" [currency]="'EUR'"></div>
+    <div vlahioDigitsToWordsRO [digits]="digits" [currency]="'RON'"></div>
 
-## Code scaffolding
+    <div vlahioDigitsToWordsEN [digits]="digits"></div>
+    <div vlahioDigitsToWordsEN [digits]="digits" [currency]="'USD'"></div>
+    <div vlahioDigitsToWordsEN [digits]="digits" [currency]="'EUR'"></div>
+    <div vlahioDigitsToWordsEN [digits]="digits" [currency]="'RON'"></div>
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+    constructor(private digitsService: DigitsToWordsRomanianService) {}
 
-## Build
+    ron(nr: number): string {
+        return this.digitsService.parse(nr);
+    }
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+    eur(nr: number): string {
+        return this.digitsService.parse(nr, 'EUR');
+    }
 
-## Running unit tests
+    usd(nr: number): string {
+        return this.digitsService.parse(nr, 'USD');
+    }
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+    constructor(private digitsService: DigitsToWordsEnglishService) {}
 
-## Running end-to-end tests
+    ron(nr: number): string {
+        return this.digitsService.parse(nr);
+    }
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+    eur(nr: number): string {
+        return this.digitsService.parse(nr, 'EUR');
+    }
 
-## Further help
+    usd(nr: number): string {
+        return this.digitsService.parse(nr, 'USD');
+    }
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+For more details read [here](https://github.com/vlah-io/ngx-digits-to-words/blob/master/INSTALLATION.md).

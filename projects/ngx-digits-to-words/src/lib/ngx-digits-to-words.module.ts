@@ -1,12 +1,20 @@
-import { NgModule } from '@angular/core';
-import { NgxDigitsToWordsComponent } from './ngx-digits-to-words.component';
-
-
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {DigitsToWordsRomanianDirective} from './directive/digits-to-words-romanian.directive';
+import {DigitsToWordsEnglishDirective} from './directive/digits-to-words-english.directive';
 
 @NgModule({
-  declarations: [NgxDigitsToWordsComponent],
   imports: [
+    CommonModule
   ],
-  exports: [NgxDigitsToWordsComponent]
+  declarations: [
+    DigitsToWordsRomanianDirective,
+    DigitsToWordsEnglishDirective
+  ],
+  exports: [
+    DigitsToWordsRomanianDirective,
+    DigitsToWordsEnglishDirective
+  ]
 })
-export class NgxDigitsToWordsModule { }
+export class NgxDigitsToWordsModule {
+}

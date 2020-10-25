@@ -1,24 +1,51 @@
-# NgxDigitsToWords
+@vlah.io/ngx-digits-to-words
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+Digits to words helper library.
 
-## Code scaffolding
+### Usage (code example)
 
-Run `ng generate component component-name --project ngx-digits-to-words` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-digits-to-words`.
-> Note: Don't forget to add `--project ngx-digits-to-words` or else it will be added to the default project in your `angular.json` file. 
+```
+    <div vlahioDigitsToWordsRO [digits]="digits"></div>
+    <div vlahioDigitsToWordsRO [digits]="digits" [currency]="'USD'"></div>
+    <div vlahioDigitsToWordsRO [digits]="digits" [currency]="'EUR'"></div>
+    <div vlahioDigitsToWordsRO [digits]="digits" [currency]="'RON'"></div>
 
-## Build
+    <div vlahioDigitsToWordsEN [digits]="digits"></div>
+    <div vlahioDigitsToWordsEN [digits]="digits" [currency]="'USD'"></div>
+    <div vlahioDigitsToWordsEN [digits]="digits" [currency]="'EUR'"></div>
+    <div vlahioDigitsToWordsEN [digits]="digits" [currency]="'RON'"></div>
+```
 
-Run `ng build ngx-digits-to-words` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+    constructor(private digitsService: DigitsToWordsRomanianService) {}
 
-## Publishing
+    ron(nr: number): string {
+        return this.digitsService.parse(nr);
+    }
 
-After building your library with `ng build ngx-digits-to-words`, go to the dist folder `cd dist/ngx-digits-to-words` and run `npm publish`.
+    eur(nr: number): string {
+        return this.digitsService.parse(nr, 'EUR');
+    }
 
-## Running unit tests
+    usd(nr: number): string {
+        return this.digitsService.parse(nr, 'USD');
+    }
+```
 
-Run `ng test ngx-digits-to-words` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+    constructor(private digitsService: DigitsToWordsEnglishService) {}
 
-## Further help
+    ron(nr: number): string {
+        return this.digitsService.parse(nr);
+    }
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    eur(nr: number): string {
+        return this.digitsService.parse(nr, 'EUR');
+    }
+
+    usd(nr: number): string {
+        return this.digitsService.parse(nr, 'USD');
+    }
+```
+
+For more details read [here](https://github.com/vlah-io/ngx-digits-to-words/blob/master/INSTALLATION.md).
