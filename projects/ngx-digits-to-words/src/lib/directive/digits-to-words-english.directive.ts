@@ -8,6 +8,11 @@ import {DigitsToWordsEnglishService} from '../service/digits-to-words-english.se
 export class DigitsToWordsEnglishDirective {
   @Input() currency: 'RON' | 'EUR' | 'USD' | 'DECIMAL';
 
+  constructor(private elRef: ElementRef,
+              private renderer: Renderer2,
+              private digitsToWordsService: DigitsToWordsEnglishService) {
+  }
+
   @Input('digits')
   set digits(nr: number) {
     NgxDigitsToWordsHelper.generateWords(
@@ -17,10 +22,5 @@ export class DigitsToWordsEnglishDirective {
       this.renderer,
       this.digitsToWordsService
     );
-  }
-
-  constructor(private elRef: ElementRef,
-              private renderer: Renderer2,
-              private digitsToWordsService: DigitsToWordsEnglishService) {
   }
 }
