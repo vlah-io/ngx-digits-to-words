@@ -6,7 +6,7 @@ Package generated with `angular-cli` as follows
 ### Create new
 
 ```
-  ng new ngx-digits-to-words --createApplication=false --prefix=vlah
+  ng new ngx-digits-to-words --createApplication=false --prefix=vlahio
   cd ngx-digits-to-words
 ```
 
@@ -14,7 +14,7 @@ Package generated with `angular-cli` as follows
 
 ```
   cd ngx-digits-to-words
-  ng generate library ngx-digits-to-words --prefix=vlah
+  ng generate library ngx-digits-to-words --prefix=vlahio
 ```
 
 ### Generate test application

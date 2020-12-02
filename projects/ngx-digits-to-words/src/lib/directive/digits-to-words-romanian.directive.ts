@@ -6,15 +6,15 @@ import {NgxDigitsToWordsHelper} from '../ngx-digits-to-words.helper';
   selector: '[vlahioDigitsToWordsRO]'
 })
 export class DigitsToWordsRomanianDirective {
-  @Input() currency: 'RON' | 'EUR' | 'USD' | 'DECIMAL';
+  @Input() currency: 'RON' | 'EUR' | 'USD' | 'DECIMAL' | undefined;
 
   constructor(private elRef: ElementRef,
               private renderer: Renderer2,
               private digitsToWordsService: DigitsToWordsRomanianService) {
   }
 
-  @Input('digits')
-  set digits(nr: number) {
+  @Input()
+  set digits(nr: number | undefined) {
     NgxDigitsToWordsHelper.generateWords(
       nr,
       this.currency,

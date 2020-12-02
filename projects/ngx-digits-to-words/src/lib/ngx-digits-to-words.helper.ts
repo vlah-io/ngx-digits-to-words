@@ -31,8 +31,8 @@ export class NgxDigitsToWordsHelper {
     return [Math.abs(nr), currency !== 'DECIMAL', strArr];
   }
 
-  static generateWords(nr: number,
-                       currency: 'RON' | 'EUR' | 'USD' | 'DECIMAL',
+  static generateWords(nr: number | undefined,
+                       currency: 'RON' | 'EUR' | 'USD' | 'DECIMAL' | undefined,
                        elRef: ElementRef,
                        renderer: Renderer2,
                        digitsToWordsService: DigitsToWordsRomanianService | DigitsToWordsEnglishService
@@ -44,7 +44,7 @@ export class NgxDigitsToWordsHelper {
           renderer.removeChild(elRef.nativeElement, child);
         }
       );
-    if (!isNaN(nr)) {
+    if (nr && !isNaN(nr)) {
       renderer.appendChild(
         elRef.nativeElement,
         renderer.createText(

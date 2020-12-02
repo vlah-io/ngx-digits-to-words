@@ -64,11 +64,15 @@ export class DigitsToWordsRomanianService {
     USD: ['dolari', 'cenți']
   };
 
-  parse(nr: number, currency: 'RON' | 'EUR' | 'USD' | 'DECIMAL' = 'DECIMAL'): string {
+  parse(nr: number | undefined, currency?: 'RON' | 'EUR' | 'USD' | 'DECIMAL' | undefined): string {
     let isCurrency: boolean;
     let strArr: string[];
 
-    if (NgxDigitsToWordsHelper.isNaN(nr)) {
+    if (!currency) {
+      currency = 'DECIMAL';
+    }
+
+    if (!nr || NgxDigitsToWordsHelper.isNaN(nr)) {
       return 'NaN';
     }
 
