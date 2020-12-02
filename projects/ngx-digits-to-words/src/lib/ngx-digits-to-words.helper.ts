@@ -47,7 +47,7 @@ export class NgxDigitsToWordsHelper {
           renderer.removeChild(elRef.nativeElement, child);
         }
       );
-    if (nr && !isNaN(nr)) {
+    if (nr !== undefined && !NgxDigitsToWordsHelper.isNaN(nr)) {
       renderer.appendChild(
         elRef.nativeElement,
         renderer.createText(
