@@ -72,7 +72,7 @@ export class DigitsToWordsRomanianService {
       currency = 'DECIMAL';
     }
 
-    if (!nr || NgxDigitsToWordsHelper.isNaN(nr)) {
+    if (nr === undefined || NgxDigitsToWordsHelper.isNaN(nr)) {
       return 'NaN';
     }
 
