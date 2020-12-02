@@ -14,10 +14,11 @@ export class NgxDigitsToWordsHelper {
   }
 
   static isNaN(nr: any): boolean {
+    const type = Object.prototype.toString.call(nr);
     return isNaN(nr) || nr === '' || [
       '[object String]',
       '[object Number]'
-    ].indexOf(Object.prototype.toString.call(nr)) === -1;
+    ].indexOf(type) === -1;
   }
 
   static init(nr: number, currency: 'RON' | 'EUR' | 'USD' | 'DECIMAL' = 'DECIMAL'): [number, boolean, string[]] {
